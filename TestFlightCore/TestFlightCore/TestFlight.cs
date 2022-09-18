@@ -393,7 +393,7 @@ namespace TestFlightCore
 
         public static TestFlightManagerScenario Instance { get; private set; }
 
-        public static System.Random RandomGenerator { get; private set; }
+        public static System.Random RandomGenerator { get; set; }
 
         public bool isReady = false;
         // For storing save specific arbitrary data

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.Profiling;
 
@@ -301,6 +301,8 @@ namespace TestFlightAPI
             ITestFlightCore core = part.FindModuleImplementing<ITestFlightCore>();
             if (core != null)
                 core.UpdatePartConfig();
+            Log( part.vessel.id.GetHashCode().ToString(), true );
+            core.RandomGenerator = new System.Random( part.vessel.id.GetHashCode() );
             return core;
         }
 
@@ -853,6 +855,7 @@ namespace TestFlightAPI
         System.Random RandomGenerator
         {
             get;
+            set;
         }
 
         bool DebugEnabled

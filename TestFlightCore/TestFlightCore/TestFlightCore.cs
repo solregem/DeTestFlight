@@ -199,7 +199,7 @@ namespace TestFlightCore
             TestFlightEditorWindow.Instance.ToggleWindow();
         }
 
-        public System.Random RandomGenerator => TestFlightManagerScenario.RandomGenerator;
+        public System.Random RandomGenerator { get { return TestFlightManagerScenario.RandomGenerator; } set { TestFlightManagerScenario.RandomGenerator = value; } }
 
         public override void OnLoad(ConfigNode node)
         {
